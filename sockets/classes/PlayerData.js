@@ -1,12 +1,19 @@
+
+// use uuid module to create a massive random string to id this player
+const uuidv4 = reuire('uuid/v4');
+
+
 // player data that everyone needs to know
 class PlayerData{
   constructor(playerName, settings){
+    this.uid = uuidv4(); // generates a crazy string to id this player
     this.name = playerName;
     this.locX = Math.floor(settings.worldWidth*Math.random() + 100);
     this.locY = Math.floor(settings.worldHeight*Math.random() + 100);
     this.radius = settings.defaultSize;
     this.color = this.getRandomColor;
     this.score = 0;
+    this.orbsAbsorbed = 0;
   }
 
   getRandomColor(){
